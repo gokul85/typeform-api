@@ -14,5 +14,7 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd sites/api/api
+          pm2 stop index
           git fetch
           git merge
+          pm2 start index
