@@ -17,4 +17,4 @@ jobs:
           pm2 stop index
           git fetch
           git merge
-          pm2 start index
+          pm2 start index.js
