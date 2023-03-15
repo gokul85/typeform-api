@@ -3,9 +3,11 @@ const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRoute = require("./routes/auth");
+const cros = require('cors');
 
 dotenv.config();
 app.use(express.json());
+app.use(cros());
 mongoose.set("strictQuery", false);
 mongoose
   .connect(process.env.MONGO_URL, {
