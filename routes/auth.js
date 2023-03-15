@@ -32,9 +32,9 @@ router.post('/register', async (req,res) => {
 
 router.post("/login", async (req, res) => {
     try {
-      const user = await User.findOne({ username: req.body.username });
+      const user = await User.findOne({ email: req.body.email });
       if (!user) {
-        res.status(200).json({ err: "Invalid Username!" })
+        res.status(200).json({ err: "Invalid Email!" })
       } else {
       const validated = await bcrypt.compare(req.body.password, user.password);
       if (!validated) {
