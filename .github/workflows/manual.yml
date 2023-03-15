@@ -14,4 +14,8 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd sites/api/api
+          pm2 stop index
+          git fetch
           git merge
+          npm install
+          pm2 start index.js
